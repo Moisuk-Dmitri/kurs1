@@ -82,10 +82,10 @@ public class Employee {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
-            return  true;
+            return true;
         }
         if (obj == null || this.getClass() != obj.getClass()) {
-            return  false;
+            return false;
         }
         Employee other = (Employee) obj;
         return this.firstName.equals(other.firstName) &&

@@ -1,61 +1,29 @@
 public class Main {
-    private static Employee[] employeeArray = new Employee[10];
+    public static void main(String[] args) {
+        EmployeeBook employeeBook = new EmployeeBook();
 
-    public static void main(String[] args) {}
+        // add employee1
+        Employee employee1 = new Employee("123432", "1212", "123", 2, 501);
+        employeeBook.addEmployee(employee1);
+        System.out.println(employeeBook.getEmployeeArray());
 
-    public static String getEmployeeArray() {
-        String str = "";
-        for (int i = 0; i < employeeArray.length; i++) {
-            str += employeeArray[i].toString() + "\n";
-        }
+        // add employee2
+        Employee employee2 = new Employee("1232222", "1", "13232", 4, 23);
+        employeeBook.addEmployee(employee2);
+        System.out.println(employeeBook.getEmployeeArray());
 
-        return str;
+        // add employee3
+        Employee employee3 = new Employee("12", "1232", "111", 2, 102);
+        employeeBook.addEmployee(employee3);
+        System.out.println(employeeBook.getEmployeeArray());
+
+        // delete employee2
+        employeeBook.deleteEmployeeById(2);
+        System.out.println(employeeBook.getEmployeeArray());
+
+        // add employee2
+        employeeBook.addEmployee(employee2);
+        System.out.println(employeeBook.getEmployeeArray());
     }
 
-    public static int sumSalaries() {
-        int sum = 0;
-        for (int i = 0; i < employeeArray.length; i++) {
-            sum += employeeArray[i].getSalary();
-        }
-
-        return sum;
-    }
-
-    public static int findMinSalary() {
-        int min = employeeArray[0].getSalary();
-        for (int i = 1; i < employeeArray.length; i++) {
-            if (min > employeeArray[i].getSalary()) {
-                min = employeeArray[i].getSalary();
-            }
-        }
-
-        return min;
-    }
-
-    public static int findMaxSalary() {
-        int max = employeeArray[0].getSalary();
-        for (int i = 1; i < employeeArray.length; i++) {
-            if (max < employeeArray[i].getSalary()) {
-                max = employeeArray[i].getSalary();
-
-            }
-        }
-
-        return max;
-    }
-
-    public static double getAverageSalary() {
-        double aver = (double) sumSalaries() / employeeArray.length;
-
-        return aver;
-    }
-
-    public static String getAllFullNames() {
-        String str = "";
-        for (int i = 0; i < employeeArray.length; i++) {
-            str += employeeArray[i].getFirstName() + " " + employeeArray[i].getLastName() + " " +  employeeArray[i].getMiddleName() + "\n";
-        }
-
-        return str;
-    }
 }

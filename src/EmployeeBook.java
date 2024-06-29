@@ -1,5 +1,5 @@
 public class EmployeeBook {
-    private static Employee[] employeeArray = new Employee[3];
+    private static Employee[] employeeArray = new Employee[10];
 
     public boolean addEmployee(Employee employee) {
         for (int i = 0; i < employeeArray.length; i++) {

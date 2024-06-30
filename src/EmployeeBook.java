@@ -17,7 +17,11 @@ public class EmployeeBook {
     }
 
     public void deleteEmployeeById(int id) {
-        employeeArray[id - 1] = null;
+        for (int i = 0; i < employeeArray.length; i++) {
+            if (employeeArray[i] != null && employeeArray[i].getId() == id) {
+                employeeArray[i] = null;
+            }
+        }
     }
 
     public String getEmployeeArray() {
@@ -43,11 +47,9 @@ public class EmployeeBook {
     }
 
     public Employee findMinSalary() {
-        int min = employeeArray[0].getSalary();
         Employee employee = employeeArray[0];
         for (int i = 1; i < employeeArray.length; i++) {
-            if (employeeArray[i] != null && min > employeeArray[i].getSalary()) {
-                min = employeeArray[i].getSalary();
+            if (employeeArray[i] != null && employee.getSalary() > employeeArray[i].getSalary()) {
                 employee = employeeArray[i];
             }
         }
@@ -56,11 +58,9 @@ public class EmployeeBook {
     }
 
     public Employee findMaxSalary() {
-        int max = employeeArray[0].getSalary();
         Employee employee = employeeArray[0];
         for (int i = 1; i < employeeArray.length; i++) {
-            if (employeeArray[i] != null && max < employeeArray[i].getSalary()) {
-                max = employeeArray[i].getSalary();
+            if (employeeArray[i] != null && employee.getSalary() < employeeArray[i].getSalary()) {
                 employee = employeeArray[i];
             }
         }
@@ -99,20 +99,9 @@ public class EmployeeBook {
     }
 
     public Employee findMinSalaryByDepartment(int departmentNumber) {
-        int i = 0;
-        int min = 0;
-        Employee employee = null;
-        do {
-            if (employeeArray[i] != null && employeeArray[i].getDepartmentNumber() == departmentNumber) {
-                min = employeeArray[i].getSalary();
-                employee = employeeArray[i];
-                break;
-            }
-            i++;
-        } while (i < employeeArray.length);
-        for (; i < employeeArray.length; i++) {
-            if (employeeArray[i] != null && min > employeeArray[i].getSalary()) {
-                min = employeeArray[i].getSalary();
+        Employee employee = employeeArray[0];
+        for (int i = 1; i < employeeArray.length; i++) {
+            if (employeeArray[i] != null && employeeArray[i].getDepartmentNumber() == departmentNumber && employee.getSalary() > employeeArray[i].getSalary()) {
                 employee = employeeArray[i];
             }
         }
@@ -121,20 +110,9 @@ public class EmployeeBook {
     }
 
     public Employee findMaxSalaryByDepartment(int departmentNumber) {
-        int i = 0;
-        int max = 0;
-        Employee employee = null;
-        do {
-            if (employeeArray[i] != null && employeeArray[i].getDepartmentNumber() == departmentNumber) {
-                max = employeeArray[i].getSalary();
-                employee = employeeArray[i];
-                break;
-            }
-            i++;
-        } while (i < employeeArray.length);
-        for (; i < employeeArray.length; i++) {
-            if (employeeArray[i] != null && max < employeeArray[i].getSalary()) {
-                max = employeeArray[i].getSalary();
+        Employee employee = employeeArray[0];
+        for (int i = 1; i < employeeArray.length; i++) {
+            if (employeeArray[i] != null && employeeArray[i].getDepartmentNumber() == departmentNumber && employee.getSalary() < employeeArray[i].getSalary()) {
                 employee = employeeArray[i];
             }
         }
